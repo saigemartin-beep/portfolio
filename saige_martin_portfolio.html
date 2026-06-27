@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saige Martin — Cattlewoman, Photographer, Scholar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,50..100;1,9..144,300..500,50..100&family=Outfit:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE2;
+    --paper-2:#EAE5D2;
+    --paper-3:#F7F4E9;
+    --ink:#191613;
+    --ink-2:#2A2722;
+    --mute:#736C5C;
+    --rule:#D5CFB7;
+    --rule-soft:#E3DEC7;
+    --field:#1E3826;
+    --field-deep:#142318;
+    --field-soft:#345140;
+    --cream:#EDE7D2;
+    --cream-mute:#B7AC8E;
+    --wheat:#B68A30;
+    --wheat-soft:#D9B560;
+    --copper:#8C4823;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Outfit',system-ui,sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* Subtle paper grain */
+  body::after{
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(circle at 15% 15%,rgba(140,72,35,.025) 0,transparent 35%),
+      radial-gradient(circle at 85% 85%,rgba(30,56,38,.02) 0,transparent 40%);
+  }
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 56px;
+    position:relative;
+    z-index:1;
+  }
+
+  /* ===== TOP / FIELD-GREEN PANEL ===== */
+  .top{
+    background:var(--field);
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+  }
+  .top::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 75% 25%, rgba(182,138,48,.07) 0, transparent 50%),
+      radial-gradient(ellipse at 10% 90%, rgba(52,81,64,.5) 0, transparent 55%);
+    pointer-events:none;
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 56px;
+    max-width:1280px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+  }
+  .mark{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 70;
+    font-size:26px;
+    font-style:italic;
+    font-weight:400;
+    letter-spacing:-.01em;
+    color:var(--cream);
+  }
+  .mark b{color:var(--wheat-soft);font-weight:500;font-style:normal}
+  .nav-meta{
+    display:flex;
+    gap:36px;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--cream-mute);
+  }
+  .nav-meta a{color:inherit;text-decoration:none;transition:color .2s;position:relative}
+  .nav-meta a::after{
+    content:'';
+    position:absolute;
+    left:0;bottom:-5px;
+    width:0;height:1px;
+    background:var(--wheat-soft);
+    transition:width .25s ease;
+  }
+  .nav-meta a:hover{color:var(--cream)}
+  .nav-meta a:hover::after{width:100%}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    z-index:1;
+    padding:80px 56px 128px;
+    max-width:1280px;
+    margin:0 auto;
+  }
+  .hero-eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--cream-mute);
+    margin-bottom:56px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .hero-eyebrow::before{
+    content:'';width:32px;height:1px;background:var(--wheat-soft);
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 70,"opsz" 144;
+    font-weight:300;
+    font-size:clamp(80px,12vw,184px);
+    line-height:.88;
+    letter-spacing:-.025em;
+    color:var(--cream);
+    margin-bottom:0;
+  }
+  .hero h1 .ital{
+    font-style:italic;
+    font-weight:300;
+    color:var(--cream);
+  }
+  .hero h1 .dot{color:var(--wheat-soft);font-weight:400}
+
+  .hero-thesis{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 60,"opsz" 72;
+    font-style:italic;
+    font-weight:300;
+    font-size:clamp(26px,2.8vw,40px);
+    line-height:1.3;
+    color:var(--cream);
+    opacity:.9;
+    max-width:840px;
+    margin:72px 0 80px;
+  }
+  .hero-thesis .em{font-style:normal;color:var(--wheat-soft)}
+
+  .hero-strip{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:32px;
+    padding-top:40px;
+    border-top:1px solid rgba(237,231,210,.18);
+  }
+  .strip-item .label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--cream-mute);
+    margin-bottom:12px;
+  }
+  .strip-item .val{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 50;
+    font-size:22px;
+    font-weight:400;
+    color:var(--cream);
+    line-height:1.3;
+  }
+  .strip-item .val em{font-style:italic;color:var(--wheat-soft)}
+
+  /* ===== SECTION SCAFFOLDING ===== */
+  section{
+    padding:128px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .part-label{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:64px;
+    margin-bottom:88px;
+    align-items:start;
+  }
+  .part-meta{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--mute);
+    line-height:2;
+    padding-top:14px;
+    border-top:2px solid var(--field);
+  }
+  .part-meta .num{
+    display:block;
+    color:var(--field);
+    font-weight:700;
+    margin-bottom:4px;
+    letter-spacing:.18em;
+  }
+  .part-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 70,"opsz" 144;
+    font-weight:300;
+    font-size:clamp(52px,7vw,108px);
+    line-height:.95;
+    letter-spacing:-.022em;
+    color:var(--ink);
+  }
+  .part-title .ital{font-style:italic}
+  .part-title .accent{color:var(--field)}
+
+  /* ===== THESIS ===== */
+  .thesis{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:64px;
+  }
+  .thesis-marginalia{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    line-height:1.9;
+    color:var(--mute);
+    letter-spacing:.04em;
+  }
+  .thesis-marginalia p+p{margin-top:18px}
+  .thesis-marginalia .pin{color:var(--field);margin-right:6px;font-weight:700}
+  .thesis-body{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 50;
+    font-weight:300;
+    font-size:clamp(26px,2.8vw,38px);
+    line-height:1.4;
+    color:var(--ink-2);
+    max-width:860px;
+  }
+  .thesis-body p+p{margin-top:1em}
+  .thesis-body em{font-style:italic;color:var(--field)}
+  .thesis-body .signature{
+    display:block;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-top:48px;
+  }
+  .thesis-body .signature b{color:var(--ink);font-weight:700}
+
+  /* ===== STOCK BOOK (signature dashboard) ===== */
+  .stockbook{
+    background:var(--paper-2);
+    border-top:2px solid var(--field);
+    border-bottom:2px solid var(--field);
+    margin:0 -56px;
+    padding:80px 56px;
+    position:relative;
+  }
+  .stockbook::before{
+    content:'STOCK BOOK · 2026 EDITION';
+    position:absolute;
+    top:-1px;
+    left:50%;
+    transform:translateX(-50%) translateY(-50%);
+    background:var(--paper);
+    padding:0 24px;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.28em;
+    color:var(--field);
+    font-weight:700;
+  }
+  .stockbook::after{
+    content:'MAINTAINED BY HAND';
+    position:absolute;
+    bottom:-1px;
+    left:50%;
+    transform:translateX(-50%) translateY(50%);
+    background:var(--paper);
+    padding:0 24px;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.28em;
+    color:var(--field);
+    font-weight:700;
+  }
+
+  /* Tallies row */
+  .tallies{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    max-width:1100px;
+    margin:0 auto 64px;
+  }
+  .tally{
+    padding:24px 28px;
+    border-right:1px solid var(--rule);
+  }
+  .tally:last-child{border-right:none}
+  .tally-label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-bottom:12px;
+  }
+  .tally-value{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 70,"opsz" 144;
+    font-weight:300;
+    font-size:72px;
+    line-height:.95;
+    letter-spacing:-.03em;
+    color:var(--ink);
+    font-variant-numeric:tabular-nums;
+    margin-bottom:6px;
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+  }
+  .tally-value .unit{
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    color:var(--mute);
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+  }
+  .tally-note{
+    font-family:'Outfit',sans-serif;
+    font-size:12px;
+    color:var(--mute);
+    line-height:1.4;
+    margin-top:4px;
+  }
+
+  /* Timeline */
+  .timeline-wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:32px 0 0;
+    border-top:1px solid var(--rule);
+  }
+  .timeline-label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-bottom:32px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .timeline-label b{color:var(--field);font-weight:700}
+  .timeline{
+    position:relative;
+    padding:8px 0 36px;
+  }
+  .timeline-axis{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    border-bottom:1px solid var(--field);
+    padding-bottom:8px;
+    margin-bottom:24px;
+  }
+  .timeline-axis span{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--mute);
+    text-align:left;
+    border-left:1px solid var(--rule);
+    padding:4px 0 4px 6px;
+    letter-spacing:.05em;
+  }
+  .timeline-axis span:first-child{border-left:1px solid var(--field)}
+  .timeline-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:16px;
+    align-items:center;
+    padding:8px 0;
+  }
+  .timeline-name{
+    font-family:'Outfit',sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink);
+    line-height:1.3;
+  }
+  .timeline-name span{
+    display:block;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--mute);
+    margin-top:2px;
+    letter-spacing:.05em;
+    font-weight:400;
+  }
+  .timeline-bar{
+    position:relative;
+    height:18px;
+    background:transparent;
+  }
+  .timeline-bar .seg{
+    position:absolute;
+    top:0;
+    height:100%;
+    background:var(--field);
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    padding:0 8px;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--cream);
+    letter-spacing:.04em;
+    white-space:nowrap;
+  }
+  .timeline-bar .seg.active{
+    background:var(--wheat);
+    color:var(--field-deep);
+    font-weight:700;
+  }
+  .timeline-bar .seg.photo{background:var(--copper);color:var(--cream)}
+  .timeline-bar .seg.school{background:var(--field-soft);color:var(--cream)}
+
+  /* ===== REGISTER ENTRIES ===== */
+  .register-intro{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-bottom:48px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--field);
+    display:flex;
+    justify-content:space-between;
+  }
+  .register-intro b{color:var(--field);font-weight:700}
+
+  .entry{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:64px;
+    padding:48px 0;
+    border-top:1px solid var(--rule);
+  }
+  .entry:first-of-type{border-top:1px solid var(--field);border-top-width:2px}
+  .entry:last-of-type{border-bottom:1px solid var(--field);border-bottom-width:2px}
+
+  .entry-side{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    line-height:1.8;
+  }
+  .entry-when{
+    font-size:12px;
+    color:var(--ink);
+    letter-spacing:.04em;
+    font-variant-numeric:tabular-nums;
+    margin-bottom:6px;
+  }
+  .entry-status{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:var(--field);
+    font-weight:700;
+    letter-spacing:.08em;
+  }
+  .entry-status.now{color:var(--copper)}
+  .entry-status .pulse{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:currentColor;
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1}
+    50%{opacity:.4}
+  }
+  .entry-meta-block{
+    margin-top:24px;
+    padding-top:24px;
+    border-top:1px dotted var(--rule);
+  }
+  .entry-meta-block .row{
+    margin-bottom:14px;
+  }
+  .entry-meta-block .lbl{
+    color:var(--mute);
+    text-transform:uppercase;
+    font-size:9px;
+    letter-spacing:.18em;
+    display:block;
+    margin-bottom:4px;
+  }
+  .entry-meta-block .val{
+    color:var(--ink-2);
+    font-size:12px;
+    font-weight:700;
+  }
+
+  .entry-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 60,"opsz" 144;
+    font-weight:300;
+    font-size:clamp(36px,4.2vw,56px);
+    line-height:1.05;
+    letter-spacing:-.018em;
+    margin-bottom:6px;
+  }
+  .entry-title em{font-style:italic}
+  .entry-org{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--field);
+    margin-bottom:32px;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  .entry-body{
+    font-family:'Outfit',sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    color:var(--ink-2);
+    max-width:780px;
+    margin-bottom:32px;
+  }
+  .entry-body p+p{margin-top:1em}
+  .entry-body em{font-style:italic;color:var(--field)}
+  .entry-body strong{font-weight:500;color:var(--ink)}
+
+  /* duties list */
+  .duties{
+    list-style:none;
+    border-top:1px solid var(--ink);
+    padding-top:20px;
+    max-width:780px;
+  }
+  .duties-label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-bottom:16px;
+  }
+  .duties li{
+    display:grid;
+    grid-template-columns:32px 1fr;
+    gap:16px;
+    padding:10px 0;
+    border-bottom:1px dotted var(--rule);
+    font-family:'Outfit',sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    color:var(--ink-2);
+  }
+  .duties li:last-child{border-bottom:none}
+  .duties li .num{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--field);
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ===== PHOTOGRAPHY SECTION ===== */
+  .photo-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .photo-text{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 50;
+    font-weight:300;
+    font-size:clamp(22px,2.4vw,32px);
+    line-height:1.4;
+    color:var(--ink-2);
+  }
+  .photo-text p+p{margin-top:1em}
+  .photo-text em{font-style:italic;color:var(--copper)}
+  .photo-stats{
+    background:var(--field);
+    color:var(--cream);
+    padding:40px;
+    border-radius:2px;
+    position:relative;
+  }
+  .photo-stats::before{
+    content:'NEXT LEVEL IMAGES · NATIONWIDE';
+    position:absolute;
+    top:-12px;
+    left:24px;
+    background:var(--paper);
+    padding:0 12px;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.18em;
+    color:var(--field);
+    font-weight:700;
+  }
+  .photo-stats h4{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 70;
+    font-weight:300;
+    font-style:italic;
+    font-size:32px;
+    margin-bottom:32px;
+    color:var(--wheat-soft);
+  }
+  .photo-stats .ps-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:14px 0;
+    border-bottom:1px dotted rgba(237,231,210,.2);
+  }
+  .photo-stats .ps-row:last-child{border-bottom:none}
+  .photo-stats .ps-row .ps-label{
+    font-family:'Outfit',sans-serif;
+    font-size:14px;
+    color:var(--cream);
+    opacity:.85;
+  }
+  .photo-stats .ps-row .ps-val{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    color:var(--wheat-soft);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+
+  .photo-tools{
+    margin-top:48px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .photo-tools span{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    padding:6px 12px;
+    background:var(--paper-3);
+    color:var(--ink-2);
+    border:1px solid var(--rule);
+    letter-spacing:.04em;
+  }
+
+  /* ===== STUDY / EDUCATION ===== */
+  .study-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .degree-card{
+    padding:32px;
+    background:var(--paper-3);
+    border:1px solid var(--rule);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .degree-card.current{
+    background:var(--field);
+    color:var(--cream);
+    border-color:var(--field);
+  }
+  .degree-status{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--mute);
+    margin-bottom:24px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .degree-card.current .degree-status{color:var(--wheat-soft);font-weight:700}
+  .degree-status .dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    background:currentColor;
+  }
+  .degree-name{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 60;
+    font-weight:300;
+    font-size:24px;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    margin-bottom:16px;
+    flex:1;
+  }
+  .degree-card.current .degree-name{color:var(--cream)}
+  .degree-name em{font-style:italic;color:var(--field)}
+  .degree-card.current .degree-name em{color:var(--wheat-soft)}
+  .degree-school{
+    font-family:'Outfit',sans-serif;
+    font-size:14px;
+    color:var(--mute);
+    border-top:1px solid var(--rule);
+    padding-top:16px;
+  }
+  .degree-card.current .degree-school{
+    color:var(--cream-mute);
+    border-top-color:rgba(237,231,210,.18);
+  }
+  .degree-school b{color:var(--ink);font-weight:500;display:block;margin-bottom:4px}
+  .degree-card.current .degree-school b{color:var(--cream)}
+  .degree-when{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--mute);
+    margin-top:8px;
+    letter-spacing:.04em;
+  }
+  .degree-card.current .degree-when{color:var(--cream-mute)}
+
+  /* honors */
+  .honors{
+    margin-top:64px;
+    padding:32px 0;
+    border-top:2px solid var(--field);
+    border-bottom:1px solid var(--rule);
+  }
+  .honors-label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--field);
+    margin-bottom:24px;
+    font-weight:700;
+  }
+  .honors-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .honor{
+    padding:20px 0;
+    border-top:1px dotted var(--rule);
+  }
+  .honor-title{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 50;
+    font-size:20px;
+    font-style:italic;
+    color:var(--ink);
+    line-height:1.3;
+    margin-bottom:6px;
+  }
+  .honor-org{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--mute);
+  }
+
+  /* ===== CONTACT (full-bleed field-green) ===== */
+  .contact-section{
+    background:var(--field);
+    color:var(--cream);
+    margin:0;
+    border-bottom:none;
+    position:relative;
+    overflow:hidden;
+    padding:0;
+  }
+  .contact-section::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 80% 30%, rgba(182,138,48,.08) 0, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(52,81,64,.5) 0, transparent 50%);
+  }
+  .contact-inner{
+    max-width:1280px;
+    margin:0 auto;
+    padding:140px 56px 80px;
+    position:relative;
+    z-index:1;
+  }
+  .contact-prompt{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--cream-mute);
+    margin-bottom:40px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .contact-prompt::before{content:'';width:32px;height:1px;background:var(--wheat-soft)}
+
+  .contact-line{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 80,"opsz" 144;
+    font-weight:300;
+    font-size:clamp(56px,8vw,128px);
+    line-height:.95;
+    letter-spacing:-.025em;
+    color:var(--cream);
+    margin-bottom:80px;
+    max-width:1100px;
+  }
+  .contact-line em{font-style:italic;color:var(--wheat-soft)}
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:32px;
+    border-top:1px solid rgba(237,231,210,.2);
+    padding-top:40px;
+  }
+  .contact-cell .label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--cream-mute);
+    margin-bottom:12px;
+  }
+  .contact-cell .val{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"SOFT" 50;
+    font-size:22px;
+    line-height:1.3;
+    color:var(--cream);
+  }
+  .contact-cell a{
+    color:inherit;
+    text-decoration:none;
+    border-bottom:1px solid rgba(237,231,210,.2);
+    padding-bottom:2px;
+    transition:border-color .2s;
+  }
+  .contact-cell a:hover{border-bottom-color:var(--wheat-soft)}
+
+  .footer-coda{
+    margin-top:96px;
+    padding-top:32px;
+    border-top:1px solid rgba(237,231,210,.15);
+    display:flex;
+    justify-content:space-between;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--cream-mute);
+  }
+  .footer-coda b{color:var(--wheat-soft);font-weight:700}
+
+  /* ===== Responsive ===== */
+  @media (max-width:960px){
+    nav,.hero,.contact-inner{padding-left:28px;padding-right:28px}
+    .wrap{padding:0 28px}
+    nav{flex-wrap:wrap;gap:16px;padding-top:20px;padding-bottom:20px}
+    .nav-meta{gap:16px;font-size:10px;flex-wrap:wrap}
+    .hero{padding-top:48px;padding-bottom:80px}
+    .hero-eyebrow{margin-bottom:32px}
+    .hero-thesis{margin:48px 0 56px}
+    .hero-strip{grid-template-columns:1fr 1fr;gap:24px}
+    section{padding:80px 0}
+    .part-label,.thesis,.entry{grid-template-columns:1fr;gap:24px}
+    .part-label{margin-bottom:48px}
+    .stockbook{margin:0 -28px;padding:56px 28px}
+    .tallies{grid-template-columns:1fr 1fr}
+    .tally{border-right:none;border-bottom:1px solid var(--rule)}
+    .tally:nth-child(odd){border-right:1px solid var(--rule)}
+    .tally:nth-last-child(-n+2){border-bottom:none}
+    .tally-value{font-size:48px}
+    .timeline-axis{grid-template-columns:repeat(6,1fr)}
+    .timeline-axis span:nth-child(odd){display:none}
+    .timeline-row{grid-template-columns:1fr;gap:6px}
+    .photo-grid{grid-template-columns:1fr;gap:32px}
+    .study-grid{grid-template-columns:1fr;gap:20px}
+    .honors-list{grid-template-columns:1fr;gap:0}
+    .contact-grid{grid-template-columns:1fr 1fr;gap:24px}
+    .contact-inner{padding-top:80px;padding-bottom:48px}
+    .footer-coda{flex-direction:column;gap:8px;text-align:center}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+
+  a:focus-visible{outline:2px solid var(--wheat);outline-offset:4px;border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP / FIELD-GREEN PANEL ===== -->
+<div class="top">
+  <nav>
+    <div class="mark">S<b>M</b>.</div>
+    <div class="nav-meta">
+      <a href="#thesis">Thesis</a>
+      <a href="#stockbook">Stock book</a>
+      <a href="#register">Register</a>
+      <a href="#photography">Photography</a>
+      <a href="#study">Study</a>
+      <a href="#contact">Reach out</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-eyebrow">STOCK BOOK 2026 · ENTRY ONE · STILLWATER, OK</div>
+    <h1>
+      Saige<br>
+      <span class="ital">Martin</span><span class="dot">.</span>
+    </h1>
+    <p class="hero-thesis">
+      Cattlewoman, livestock photographer, graduate student of international agriculture —
+      <span class="em">work that's been kept up for the better part of a decade.</span>
+    </p>
+    <div class="hero-strip">
+      <div class="strip-item">
+        <div class="label">Practice</div>
+        <div class="val">Show cattle &amp; <em>livestock</em></div>
+      </div>
+      <div class="strip-item">
+        <div class="label">Discipline</div>
+        <div class="val"><em>Husbandry</em> · photography · research</div>
+      </div>
+      <div class="strip-item">
+        <div class="label">Tenure</div>
+        <div class="val"><em>Eleven</em> years on file</div>
+      </div>
+      <div class="strip-item">
+        <div class="label">Standing</div>
+        <div class="val"><em>Open</em> · graduate work</div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== THESIS ===== -->
+  <section id="thesis">
+    <div class="part-label">
+      <div class="part-meta">
+        <span class="num">I.</span>
+        On the work<br>
+        A few principles, plainly.
+      </div>
+      <h2 class="part-title">A <span class="ital">working</span> <span class="accent">thesis.</span></h2>
+    </div>
+    <div class="thesis">
+      <div class="thesis-marginalia">
+        <p><span class="pin">§</span>Animals first.</p>
+        <p><span class="pin">§</span>Records second.</p>
+        <p><span class="pin">§</span>The herd is a long sentence.</p>
+        <p><span class="pin">§</span>You finish the chores.</p>
+      </div>
+      <div class="thesis-body">
+        <p>Livestock work has a quality most jobs don't — it doesn't stop because you're tired, or because the weather turned, or because the calendar says it's a holiday. The cattle eat at the same time every day for the rest of your life.</p>
+        <p>That cadence is the thing I've come to like most about the work. It's also <em>the discipline that quietly underwrites everything else I do</em> — the photography, the records, the academic work. If you can run a barn, you can run almost anything.</p>
+        <p>What I aim for in any operation is the same: clean records, well-cared-for animals, and the kind of preparation that makes a show ring or a sale day feel inevitable rather than improvised.</p>
+        <span class="signature">Saige Martin <b>// Stillwater, OK · 2026</b></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STOCK BOOK / DASHBOARD ===== -->
+  <section id="stockbook">
+    <div class="part-label">
+      <div class="part-meta">
+        <span class="num">II.</span>
+        At a glance<br>
+        Continuous tenure, layered.
+      </div>
+      <h2 class="part-title">The <span class="ital">stock</span> <span class="accent">book.</span></h2>
+    </div>
+
+    <div class="stockbook">
+
+      <div class="tallies">
+        <div class="tally">
+          <div class="tally-label">On the books since</div>
+          <div class="tally-value">11<span class="unit">YR</span></div>
+          <div class="tally-note">Continuous family operation, May 2015</div>
+        </div>
+        <div class="tally">
+          <div class="tally-label">Cow herd managed</div>
+          <div class="tally-value">300<span class="unit">HD</span></div>
+          <div class="tally-note">Breeding, calving, health, nutrition</div>
+        </div>
+        <div class="tally">
+          <div class="tally-label">Operations served</div>
+          <div class="tally-value">4<span class="unit">+</span></div>
+          <div class="tally-note">Across Oklahoma &amp; Texas</div>
+        </div>
+        <div class="tally">
+          <div class="tally-label">Graduate work</div>
+          <div class="tally-value">M.S.<span class="unit">IN PROGRESS</span></div>
+          <div class="tally-note">International Agriculture · OSU</div>
+        </div>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline-label">
+          <span>OVERLAPPING ENGAGEMENTS</span>
+          <span><b>2015 → 2026 →</b></span>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-axis">
+            <span>'15</span><span>'16</span><span>'17</span><span>'18</span>
+            <span>'19</span><span>'20</span><span>'21</span><span>'22</span>
+            <span>'23</span><span>'24</span><span>'25</span><span>'26</span>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-name">
+              Brian Martin Show Cattle
+              <span>Herdsman · Hereford, TX</span>
+            </div>
+            <div class="timeline-bar">
+              <div class="seg active" style="left:0%;width:99%">2015 — present · 11 yrs continuous</div>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-name">
+              Norvell Cattle Co.
+              <span>Herdsman · Tuttle, OK</span>
+            </div>
+            <div class="timeline-bar">
+              <div class="seg" style="left:63%;width:7%">'22–'23</div>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-name">
+              Express Ranches
+              <span>Herdsman · Yukon, OK</span>
+            </div>
+            <div class="timeline-bar">
+              <div class="seg" style="left:72%;width:24%">2023 — May 2026</div>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-name">
+              Next Level Images
+              <span>Livestock photographer · nationwide</span>
+            </div>
+            <div class="timeline-bar">
+              <div class="seg photo" style="left:81%;width:18%">2024 — present</div>
+            </div>
+          </div>
+
+          <div class="timeline-row">
+            <div class="timeline-name">
+              OSU Graduate Assistant
+              <span>Intl. Agriculture program</span>
+            </div>
+            <div class="timeline-bar">
+              <div class="seg school" style="left:91%;width:8%">Jan 2026 — present</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REGISTER OF WORK ===== -->
+  <section id="register">
+    <div class="part-label">
+      <div class="part-meta">
+        <span class="num">III.</span>
+        Register of work<br>
+        Entries in order.
+      </div>
+      <h2 class="part-title">The <span class="ital">register</span>.</h2>
+    </div>
+
+    <div class="register-intro">
+      <span>FIVE ENTRIES · OLDEST TO MOST RECENT</span>
+      <span><b>MAINTAINED CONTINUOUSLY SINCE 2015</b></span>
+    </div>
+
+    <!-- Entry 1: Brian Martin Show Cattle -->
+    <article class="entry">
+      <div class="entry-side">
+        <div class="entry-when">May 2015 — Present</div>
+        <div class="entry-status now"><span class="pulse"></span>STANDING ENGAGEMENT</div>
+        <div class="entry-meta-block">
+          <div class="row">
+            <span class="lbl">Operation</span>
+            <span class="val">Brian Martin Show Cattle</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Located</span>
+            <span class="val">Hereford, TX</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Charge</span>
+            <span class="val">Herd management</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Scale</span>
+            <span class="val">300-head cow herd</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="entry-title">The <em>family operation</em></h3>
+        <div class="entry-org">BRIAN MARTIN SHOW CATTLE · HEREFORD, TX</div>
+        <div class="entry-body">
+          <p>The longest entry in the book — and the one everything else has been built on top of. <strong>Eleven continuous years</strong> at a 300-head purebred operation in the Texas Panhandle. I came up in this barn; I still work it.</p>
+          <p>Day-to-day responsibility for <em>breeding, calving, and health management</em> across the cow herd, plus the two anchor sale events on the calendar: the <em>spring steer sale</em> and the <em>summer elite cow auction</em>.</p>
+        </div>
+        <ul class="duties">
+          <div class="duties-label">Recorded duties</div>
+          <li><span class="num">01</span><span>Oversee daily operations across the 300-head cow herd — feeding, water, observation, and the steady work of knowing the animals.</span></li>
+          <li><span class="num">02</span><span>Run the breeding program — heat detection, AI scheduling, calving assistance, and the records that make pedigrees defensible.</span></li>
+          <li><span class="num">03</span><span>Implement vaccination protocols on schedule; manage nutrition programs across the calendar year and the herd's reproductive stages.</span></li>
+          <li><span class="num">04</span><span>Organize and execute the annual spring steer sales and summer elite cow auctions — preparation, logistics, and presentation.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Entry 2: Norvell Cattle -->
+    <article class="entry">
+      <div class="entry-side">
+        <div class="entry-when">Aug 2022 — May 2023</div>
+        <div class="entry-status">CLOSED IN GOOD ORDER</div>
+        <div class="entry-meta-block">
+          <div class="row">
+            <span class="lbl">Operation</span>
+            <span class="val">Norvell Cattle Company</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Located</span>
+            <span class="val">Tuttle, OK</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Charge</span>
+            <span class="val">Herdsman</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Capacity</span>
+            <span class="val">Show cattle program</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="entry-title">A <em>show string</em> in Tuttle</h3>
+        <div class="entry-org">NORVELL CATTLE COMPANY · TUTTLE, OK</div>
+        <div class="entry-body">
+          <p>Worked the daily care of a small show cattle program — feeding, washing, the exercise routines that distinguish a show animal from a pasture animal. The work that doesn't end on weekends.</p>
+        </div>
+        <ul class="duties">
+          <div class="duties-label">Recorded duties</div>
+          <li><span class="num">01</span><span>Daily care of show cattle — feeding, washing, exercise — calibrated to season and individual animal condition.</span></li>
+          <li><span class="num">02</span><span>Monitored equipment and animal welfare during travel to shows across the country.</span></li>
+          <li><span class="num">03</span><span>Maintained up-to-date pedigrees and accurate record-keeping for customers — the kind of documentation that holds up under scrutiny.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Entry 3: Express Ranches -->
+    <article class="entry">
+      <div class="entry-side">
+        <div class="entry-when">Aug 2023 — May 2026</div>
+        <div class="entry-status">CLOSED ON SCHEDULE</div>
+        <div class="entry-meta-block">
+          <div class="row">
+            <span class="lbl">Operation</span>
+            <span class="val">Express Ranches</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Located</span>
+            <span class="val">Yukon, OK</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Charge</span>
+            <span class="val">Herdsman</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Tenure</span>
+            <span class="val">2.8 years</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="entry-title">Three <em>seasons</em> on the rope</h3>
+        <div class="entry-org">EXPRESS RANCHES · YUKON, OK</div>
+        <div class="entry-body">
+          <p>A near-three-year run as herdsman at one of the better-known operations in the region. The work overlapped with undergraduate study — early mornings in the barn, classes in town, back to the barn by evening. <em>You learn what your priorities really are when the calendar makes you choose.</em></p>
+        </div>
+        <ul class="duties">
+          <div class="duties-label">Recorded duties</div>
+          <li><span class="num">01</span><span>Day-to-day care of a small show cattle string — feeding, washing, exercise — across two-plus show seasons.</span></li>
+          <li><span class="num">02</span><span>Travel logistics for shows nationwide — equipment, animal welfare en route, the kind of preparation that makes the show ring routine.</span></li>
+          <li><span class="num">03</span><span>Pedigree maintenance and customer-facing record-keeping.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Entry 4: Next Level Images -->
+    <article class="entry">
+      <div class="entry-side">
+        <div class="entry-when">Mar 2024 — Present</div>
+        <div class="entry-status now"><span class="pulse"></span>STANDING ENGAGEMENT</div>
+        <div class="entry-meta-block">
+          <div class="row">
+            <span class="lbl">Operation</span>
+            <span class="val">Next Level Images</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Located</span>
+            <span class="val">Nationwide</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Charge</span>
+            <span class="val">Livestock photographer</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Format</span>
+            <span class="val">Show &amp; portfolio work</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="entry-title">The <em>camera</em>, on the road</h3>
+        <div class="entry-org">NEXT LEVEL IMAGES · NATIONWIDE</div>
+        <div class="entry-body">
+          <p>Photography work that grew naturally out of the show ring — being around the animals, knowing the light at the shows, having the eye for the moment a calf sets up right. <em>The catalog photo that sells the heifer is a craft of its own.</em></p>
+          <p>Client-facing throughout — communication with breeders and consignors, delivery on tight publication schedules, edits in Adobe Photoshop and Lightroom that read properly for both print catalogs and social distribution.</p>
+        </div>
+        <ul class="duties">
+          <div class="duties-label">Recorded duties</div>
+          <li><span class="num">01</span><span>Photograph livestock and shows nationwide — capturing high-quality images for breeders, publications, and show records.</span></li>
+          <li><span class="num">02</span><span>Edit in Adobe Photoshop and Lightroom for publication, client use, and social media distribution.</span></li>
+          <li><span class="num">03</span><span>Maintain client relationships — gather briefs, deliver on schedule, ensure satisfaction with final selects.</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Entry 5: OSU Grad Assistant -->
+    <article class="entry">
+      <div class="entry-side">
+        <div class="entry-when">Jan 2026 — Present</div>
+        <div class="entry-status now"><span class="pulse"></span>STANDING ENGAGEMENT</div>
+        <div class="entry-meta-block">
+          <div class="row">
+            <span class="lbl">Operation</span>
+            <span class="val">Oklahoma State University</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Located</span>
+            <span class="val">Stillwater, OK</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Charge</span>
+            <span class="val">Graduate assistant</span>
+          </div>
+          <div class="row">
+            <span class="lbl">Program</span>
+            <span class="val">M.S. International Ag</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 class="entry-title">Graduate <em>assistant</em></h3>
+        <div class="entry-org">OKLAHOMA STATE UNIVERSITY · STILLWATER, OK</div>
+        <div class="entry-body">
+          <p>The most recent entry — and the one pulling the practice in a new direction. Support the operations and student experience of OSU's International Agriculture Master's program while pursuing the degree.</p>
+        </div>
+        <ul class="duties">
+          <div class="duties-label">Recorded duties</div>
+          <li><span class="num">01</span><span>Assist on research projects — data organization and program development initiatives.</span></li>
+          <li><span class="num">02</span><span>First point of contact for incoming and transfer students; professional correspondence on behalf of the program.</span></li>
+          <li><span class="num">03</span><span>Coordinate and plan student events, orientations, workshops, and program activities.</span></li>
+          <li><span class="num">04</span><span>Work with faculty and staff to administer operations, maintain student records, and support recruitment and retention.</span></li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== PHOTOGRAPHY ===== -->
+  <section id="photography">
+    <div class="part-label">
+      <div class="part-meta">
+        <span class="num">IV.</span>
+        The photography<br>
+        A practice of its own.
+      </div>
+      <h2 class="part-title">Behind <span class="ital">the</span> <span class="accent">camera.</span></h2>
+    </div>
+
+    <div class="photo-grid">
+      <div class="photo-text">
+        <p>The photography work isn't separate from the cattle work — it's its <em>extension</em>. The same eye that knows when a calf is set up right is the eye that knows when the shutter ought to be released.</p>
+        <p>The brief in this industry is specific: capture the animal as buyers and breeders would judge it in person, on a deadline, in conditions you don't get to pick.</p>
+      </div>
+      <div class="photo-stats">
+        <h4>Working brief</h4>
+        <div class="ps-row">
+          <span class="ps-label">Tenure</span>
+          <span class="ps-val">2+ years · ongoing</span>
+        </div>
+        <div class="ps-row">
+          <span class="ps-label">Coverage</span>
+          <span class="ps-val">Nationwide shows</span>
+        </div>
+        <div class="ps-row">
+          <span class="ps-label">Subject matter</span>
+          <span class="ps-val">Show cattle, sales, events</span>
+        </div>
+        <div class="ps-row">
+          <span class="ps-label">Delivery</span>
+          <span class="ps-val">Print catalog · social</span>
+        </div>
+        <div class="ps-row">
+          <span class="ps-label">Standard</span>
+          <span class="ps-val">Client-ready, on schedule</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-tools">
+      <span>Adobe Photoshop</span>
+      <span>Adobe Lightroom</span>
+      <span>Color management</span>
+      <span>Print preparation</span>
+      <span>Social-ready exports</span>
+      <span>Field workflow</span>
+      <span>Client review &amp; revision</span>
+    </div>
+  </section>
+
+  <!-- ===== STUDY / EDUCATION ===== -->
+  <section id="study">
+    <div class="part-label">
+      <div class="part-meta">
+        <span class="num">V.</span>
+        The study<br>
+        Three degrees, one through-line.
+      </div>
+      <h2 class="part-title">On <span class="ital">the</span> <span class="accent">record.</span></h2>
+    </div>
+
+    <div class="study-grid">
+      <div class="degree-card current">
+        <div class="degree-status"><span class="dot"></span>IN PROGRESS</div>
+        <div class="degree-name">Master of Science in <em>International Agriculture</em></div>
+        <div class="degree-school">
+          <b>Oklahoma State University</b>
+          Stillwater, OK
+          <div class="degree-when">Expected May 2027</div>
+        </div>
+      </div>
+
+      <div class="degree-card">
+        <div class="degree-status"><span class="dot"></span>CONFERRED</div>
+        <div class="degree-name">Bachelor of Science in <em>Agricultural Leadership</em></div>
+        <div class="degree-school">
+          <b>Oklahoma State University</b>
+          Stillwater, OK
+          <div class="degree-when">May 2025</div>
+        </div>
+      </div>
+
+      <div class="degree-card">
+        <div class="degree-status"><span class="dot"></span>CONFERRED</div>
+        <div class="degree-name">Associate of <em>Agriculture Science</em></div>
+        <div class="degree-school">
+          <b>Redlands Community College</b>
+          El Reno, OK
+          <div class="degree-when">May 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="honors">
+      <div class="honors-label">RECOGNITION &amp; INVOLVEMENT</div>
+      <div class="honors-list">
+        <div class="honor">
+          <div class="honor-title">Ag Student of the Year</div>
+          <div class="honor-org">Redlands Community College</div>
+        </div>
+        <div class="honor">
+          <div class="honor-title">Ag Ambassador</div>
+          <div class="honor-org">Redlands Community College</div>
+        </div>
+        <div class="honor">
+          <div class="honor-title">Livestock Judging Team</div>
+          <div class="honor-org">Redlands Community College</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== CONTACT (full-bleed field-green) ===== -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-prompt">VI · REACH OUT</div>
+    <h2 class="contact-line">
+      Got a barn,<br>
+      a brief, or a <em>question?</em>
+    </h2>
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <div class="label">By phone</div>
+        <div class="val"><a href="tel:+18066836487">(806)<br>683-6487</a></div>
+      </div>
+      <div class="contact-cell">
+        <div class="label">By email</div>
+        <div class="val"><a href="mailto:saigemartin@wtrt.net">saigemartin<br>@wtrt.net</a></div>
+      </div>
+      <div class="contact-cell">
+        <div class="label">Based</div>
+        <div class="val">Stillwater<br>Oklahoma</div>
+      </div>
+      <div class="contact-cell">
+        <div class="label">Standing</div>
+        <div class="val"><em>Open</em><br>academic year &amp; beyond</div>
+      </div>
+    </div>
+
+    <div class="footer-coda">
+      <span>Saige Martin · Stock book · <b>v. 2026.06</b></span>
+      <span>Kept by hand · Entries continuous since 2015</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
